@@ -13,7 +13,6 @@ app.use(express.json());
 
 function filterByQuery(query, animalsArray) {
   let personalityTraitsArray = [];
-  // Note that we save the animalsArray as filteredResults here:
   let filteredResults = animalsArray;
   if (query.personalityTraits) {
     // Save personalityTraits as a dedicated array.
@@ -46,7 +45,6 @@ function filterByQuery(query, animalsArray) {
   if (query.name) {
     filteredResults = filteredResults.filter(animal => animal.name === query.name);
   }
-  // return the filtered results:
   return filteredResults;
 }
 
@@ -99,18 +97,16 @@ app.get('/api/animals/:id', (req, res) => {
 });
 
 app.post('/api/animals', (req, res) => {
-  // set id based on what the next index of the array will be 
+  // set id based on what the next index of the array will be
   req.body.id = animals.length.toString();
 
-  // if any req.body is incorrect, send 400 error back 
   if (!validateAnimal(req.body)) {
     res.status(400).send('The animal is not properly formatted.');
   } else {
     const animal = createNewAnimal(req.body, animals);
-    res.json(req.body);
+    res.json(animal);
   }
 });
-
 app.listen(PORT, () => {
-    console.log('API server now on port 3001!');
+  console.log(`API server now on port ${PORT}!`);
 });
