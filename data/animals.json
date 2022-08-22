@@ -108,6 +108,25 @@
     },
     {
       "id": "12"
+    },
+    {
+      "name": "Mochi",
+      "species": "Cat",
+      "diet": "herbivore",
+      "personalityTraits": [
+        "hungry",
+        "loving"
+      ],
+      "id": "13"
+    },
+    {
+      "name": "test",
+      "species": "Cat",
+      "diet": "herbivore",
+      "personalityTraits": [
+        "zany"
+      ],
+      "id": "14"
     }
   ]
 }
